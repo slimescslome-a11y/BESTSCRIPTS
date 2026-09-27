@@ -1,7 +1,8 @@
-local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
-local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
-local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))()
-local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
+
+repeat task.wait() until game:IsLoaded()
+task.wait()
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/aymanabdo0355-ctrl/SUIT/refs/heads/main/EthosSuiterrrrr-obfuscated.lua"))()
 
 local gameName = "Hub"
 pcall(function()
@@ -12,43 +13,30 @@ pcall(function()
 end)
 
 local Window = Library:CreateWindow({
-	Title = gameName,
-	Footer = "Key System",
-	NotifySide = "Right",
-	ShowCustomCursor = true,
-	Size = UDim2.fromOffset(700, 500),
+	Title = "",
+	GameName = gameName,
 })
 
-local Tabs = {
-	Key = Window:AddKeyTab("Key System"),
-}
+local GetScript = Window:AddCategory("GET THE SCRIPT")
+local Tab = GetScript:AddTab(gameName)
+local Box = Tab:AddGroupbox(gameName)
 
-Tabs.Key:AddLabel({
-	Text = "Get Key",
-	DoesWrap = false,
-	Size = 18,
-})
+Box:AddLabel("OVER 100 FEATURES FOR " .. gameName)
+Box:AddLabel("NO KEY SYSTEM OR ADS")
+Box:AddLabel("Thanks for all the support ❤️ We update every single day!")
 
-Tabs.Key:AddKeyBox(function(ReceivedKey)
-	local Success = ReceivedKey == "YOUR_KEY_HERE"
-
-	if Success then
-		Library:Notify({ Title = gameName, Description = "Key accepted.", Time = 3 })
-	else
-		Library:Notify({ Title = gameName, Description = "Invalid key.", Time = 3 })
-	end
-end)
-
-Tabs.Key:AddButton({
-	Text = "Get Key (Copy Discord)",
+Box:AddButton({
+	Text = "GET THE SCRIPT HERE",
 	Func = function()
-		local link = "https://discord.com/invite/getzerohub"
+		local link = "discord.gg/getzerohub"
 		if setclipboard then
 			setclipboard(link)
-			Library:Notify({ Title = gameName, Description = "Discord copied to clipboard.", Time = 3 })
-		else
-			Library:Notify({ Title = gameName, Description = link, Time = 5 })
 		end
+
+		game.Players.LocalPlayer:Kick(
+			"Get The Script Here: discord.gg/getzerohub\n\n" ..
+			"Thanks for all the support ❤️\n" ..
+			"We Update Every Single Day"
+		)
 	end,
-	DoubleClick = false,
 })
